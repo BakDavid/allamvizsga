@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Illuminate\Http\Request;
+
 class RegisterController extends Controller
 {
     /*
@@ -49,9 +51,25 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'first_name'=>'required|max:30|string',
+            'last_name'=>'required|max:30|string',
+            'birth_date'=>'required|max:255|date',
+            'gender'=>'required|max:6',
+            'address'=>'required|max:30',
+            'city'=>'required|max:30',
+            'country'=>'required|max:30',
+            'zipcode'=>'required|digits:6',
+            'email'=>'email|required|unique:users,email|max:30',
+            'telephone'=>'required|digits_between:10,15',
+            'university'=>'required|max:30',
+            'department'=>'required|max:30',
+            'facebook'=>'nullable|max:50|url',
+            'google'=>'nullable|max:50|url',
+            'twitter'=>'nullable|max:50|url',
+            'linkedin'=>'nullable|max:50|url',
+            'password'=>'required|max:255|confirmed',
+            'file'=>'nullable',
+            'g-recaptcha-response'=>'required',
         ]);
     }
 
@@ -63,10 +81,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //dd($data);
+        
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'birth_date' => $data['birth_date'],
+            'gender' => $data['gender'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'country' => $data['country'],
+            'zipcode' => $data['zipcode'],
             'email' => $data['email'],
+            'telephone' => $data['telephone'],
+            'university' => $data['university'],
+            'department' => $data['department'],
+            'facebook' => $data['facebook'],
+            'twitter' => $data['twitter'],
+            'google' => $data['google'],
+            'linkedin' => $data['linkedin'],
             'password' => Hash::make($data['password']),
+            'user_type' => 'submitter',
         ]);
     }
 }
