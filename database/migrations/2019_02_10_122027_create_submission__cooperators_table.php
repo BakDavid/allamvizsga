@@ -17,9 +17,10 @@ class CreateSubmissionCooperatorsTable extends Migration
             $table->increments('id');
             $table->integer('submission_id')->unsigned();
             $table->integer('cooperator_id')->unsigned();
+            $table->string('deleted')->default('0');
             $table->timestamps();
             $table->rememberToken();
-            
+
             $table->foreign('submission_id')->references('id')->on('submissions');
             $table->foreign('cooperator_id')->references('id')->on('cooperators');
         });

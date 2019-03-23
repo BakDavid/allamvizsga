@@ -70,6 +70,8 @@ class RegisterController extends Controller
             'password'=>'required|max:255|confirmed',
             'file'=>'nullable',
             'g-recaptcha-response'=>'required',
+        ],[
+            'g-recaptcha-response.required' => 'The captcha field is required!',
         ]);
     }
 
@@ -82,7 +84,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //dd($data);
-        
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],

@@ -16,8 +16,10 @@ class CreateConferencesTable extends Migration
         Schema::create('conferences', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',50);
-            $table->date('submission_send_start',10);
-            $table->date('submission_send_end',10);
+            $table->date('application_start',10);
+            $table->date('application_deadline',10);
+            $table->date('abstract_upload_deadline',10);
+            $table->date('thesis_upload_deadline',10);
             $table->date('conference_day',10);
             $table->string('room',50)->nullable();
             $table->string('university',50);

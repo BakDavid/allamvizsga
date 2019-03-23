@@ -15,15 +15,15 @@
 
         <!-- MDB -->
         <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
-        
+
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        
-        
+
+
     </head>
     <body>
         <div id="app">
@@ -42,11 +42,11 @@
                         <ul class="navbar-nav mr-auto">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('conferences') }}">{{ __('Conferences') }}</a>
+                                <a class="nav-link" href="{{ route('conferences') }}">{{ __('app.conferences') }}</a>
                             </li>
                             @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('submission') }}">{{ __('Make submission') }}</a>
+                                <a class="nav-link" href="{{ route('submission') }}">{{ __('app.make_submission') }}</a>
                             </li>
                             @endauth
                         </ul>
@@ -54,33 +54,34 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
-                            @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
-                            </li>
-                            @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{__('Language')}} <span class="caret"></span>
+                                    {{__('app.language')}} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('editProfile') }}">
-                                        {{ __('English') }}
+                                    <a class="dropdown-item" href="{{ route('locale','en') }}">
+                                        {{ __('app.english') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('editProfile') }}">
-                                        {{ __('Hungarian') }}
+                                    <a class="dropdown-item" href="{{ route('locale','hu') }}">
+                                        {{ __('app.hungarian') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('editProfile') }}">
-                                        {{ __('Romanian') }}
+                                    <a class="dropdown-item" href="{{ route('locale','ro') }}">
+                                        {{ __('app.romanian') }}
                                     </a>
                                 </div>
                             </li>
+                            @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('app.login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('app.register') }}</a>
+                                @endif
+                            </li>
+                            @else
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->first_name . ' ' . Auth::user()->last_name}} <span class="caret"></span>
@@ -88,18 +89,18 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('submissionlist') }}">
-                                        {{ __('My submissions') }}
+                                        {{ __('app.my_submission') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('conferenceparticipationlist') }}">
+                                        {{ __('app.my_conference_part') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('editProfile') }}">
-                                        {{ __('My conference participation list') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('editProfile') }}">
-                                        {{ __('Edit Profile') }}
+                                        {{ __('app.edit_profile') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('app.logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

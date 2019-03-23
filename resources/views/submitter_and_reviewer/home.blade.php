@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+
+                    Ezt az oldalt fogja majd a chair valtoztatni, amikor valami fontos informaciot akar kozolni.
                 </div>
             </div>
         </div>

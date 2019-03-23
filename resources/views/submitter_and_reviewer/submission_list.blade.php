@@ -7,21 +7,35 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Conferences</div>
+                <div class="card-header">{{ __('submission_list.submission') }}</div>
 
                 <div class="card-body">
+
+                    @if ($errors->has('msg'))
+                    <div class="alert alert-success alert-dismissible">
+                        <div class="{{ $errors->has('msg') ? ' is-invalid' : '' }}" name="msg" autofocus>
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{ $errors->first('msg') }}</strong>
+                        </div>
+                    </div>
+                    @endif
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <table id="myDataTable" class="table table-hover btn-table">
+                    <table id="myDataTable" class="table table-hover btn-table table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col">Submission title</th>
-                                <th scope="col">Submission key words</th>
-                                <th scope="col">Thesis</th>
+                                <th scope="col">{{ __('submission_list.title') }}</th>
+                                <th scope="col">{{ __('submission_list.key_words') }}</th>
+                                <th scope="col">{{ __('submission_list.conference') }}</th>
+                                <th scope="col">{{ __('submission_list.created') }}</th>
+                                <th scope="col">{{ __('submission_list.updated') }}</th>
+                                <th></th>
+                                <th></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -31,13 +45,20 @@
                                 <tr>
                                     <td>{{$subm->title}}</td>
                                     <td>{{$subm->key_words}}</td>
-                                    <td>{{$subm->thesis_name_upload}}</td>
-                                    <td style="float:right">
-                                        <a href="{{ route('submissiondetail',$subm->id)}}" class="btn btn-info">Details</a>
-                                        <a class="btn btn-danger">Delete</a>
+                                    <td>{{$subm->name}}</td>
+                                    <td>{{$subm->created_at}}</td>
+                                    <td>{{$subm->updated_at}}</td>
+                                    <td>
+                                        <a href="{{ route('submissiondetail',$subm->id)}}" class="btn btn-info">{{ __('submission_list.details') }}</a>
                                     </td>
-                                    
-                                </tr>  
+                                    <td>
+                                        <a href="{{ route('submissionedit',$subm->id)}}" class="btn btn-green">{{ __('submission_list.edit') }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('submissiondelete', $subm->id)}}" onclick="return confirm('{{__('submission_list.are_you_sure')}} {{$subm->title}} ?')" class="btn btn-danger">{{ __('submission_list.delete') }}</a>
+                                    </td>
+
+                                </tr>
                                 @endforeach
                             @endif
                         </tbody>

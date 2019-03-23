@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Conferences</div>
+                <div class="card-header">{{ __('conferences.conferences') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,16 +16,16 @@
                         </div>
                     @endif
 
-                    <table id="myDataTable" class="table table-hover btn-table">
+                    <table id="myDataTable" class="table table-hover btn-table table-responsive">
                         <thead>
                             <tr>
-                                <th scope="col">Conference name</th>
-                                <th scope="col">Submission send start</th>
-                                <th scope="col">Submission send end</th>
-                                <th scope="col">Country</th>
-                                <th scope="col">University</th>
-                                <th scope="col">Maximum people</th>
-                                <th scope="col">Current people</th>
+                                <th scope="col">{{ __('conferences.name') }}</th>
+                                <th scope="col">{{ __('conferences.application_start') }}</th>
+                                <th scope="col">{{ __('conferences.application_deadline') }}</th>
+                                <th scope="col">{{ __('conferences.abstract_upload_deadline') }}</th>
+                                <th scope="col">{{ __('conferences.thesis_upload_deadline') }}</th>
+                                <th scope="col">{{ __('conferences.max_people') }}</th>
+                                <th scope="col">{{ __('conferences.current_people') }}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -34,14 +34,14 @@
                                 @foreach($conferences as $conf)
                                 <tr>
                                     <td>{{$conf->name}}</td>
-                                    <td>{{$conf->submission_send_start}}</td>
-                                    <td>{{$conf->submission_send_end}}</td>
-                                    <td>{{$conf->country}}</td>
-                                    <td>{{$conf->university}}</td>
+                                    <td>{{$conf->application_start}}</td>
+                                    <td>{{$conf->application_deadline}}</td>
+                                    <td>{{$conf->abstract_upload_deadline}}</td>
+                                    <td>{{$conf->thesis_upload_deadline}}</td>
                                     <td>{{$conf->max_participants}}</td>
                                     <td>{{$conf->participants}}</td>
-                                    <td><a class="btn btn-info">Details</a></td>
-                                </tr>  
+                                    <td><a href="{{route('conferencedetail',$conf->id)}}" class="btn btn-info">{{ __('conferences.details') }}</a></td>
+                                </tr>
                                 @endforeach
                             @endif
                         </tbody>

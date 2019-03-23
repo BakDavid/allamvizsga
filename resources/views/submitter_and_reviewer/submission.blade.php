@@ -19,12 +19,12 @@
                 <div class="card">
                     @csrf
 
-                    <div class="card-header">{{ __('Basic information') }}</div>
+                    <div class="card-header">{{ __('submission.basic') }}</div>
 
                     <div class="card-body">
 
                         <div class="form-group row">
-                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('submission.title') }}</label>
 
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required autofocus>
@@ -39,13 +39,13 @@
                     </div>
 
 
-                    <div class="card-header">{{ __('Personal Data') }}</div>
+                    <div class="card-header">{{ __('submission.personal') }}</div>
 
                     <div class="card-body">
 
 
                         <div class="form-group row">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('submission.first_name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="first_name[]" value="{{ Auth::user()->first_name }}" required autofocus>
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('submission.last_name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name[]" value="{{ Auth::user()->last_name }}" required autofocus>
@@ -73,12 +73,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right">{{ __('Student') }}</label>
-                            
+                            <label class="col-md-4 col-form-label text-md-right">{{ __('submission.student') }}</label>
+
                             <div class="col-md-6">
                                 <select class="form-control{{ $errors->has('student') ? ' is-invalid' : '' }}" name="student[]" id="student" value="{{ Auth::user()->student }}">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1">{{ __('submission.yes') }}</option>
+                                    <option value="0">{{ __('submission.no') }}</option>
                                 </select>
 
                                 @if ($errors->has('student'))
@@ -87,11 +87,11 @@
                                 </span>
                                 @endif
                             </div>
-                            
+
                         </div>
 
                         <div class="form-group row">
-                            <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
+                            <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('submission.birth_date') }}</label>
 
                             <div class="col-md-6">
                                 <input id="birth_date" type="date" class="form-control{{ $errors->has('birth_date') ? ' is-invalid' : '' }}" name="birth_date[]" value="{{ Auth::user()->birth_date }}" required autofocus>
@@ -105,12 +105,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('submission.gender') }}</label>
 
                             <div class="col-md-6">
                                 <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender[]" id="gender" value="{{ Auth::user()->gender }}">
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                    <option value="Male">{{ __('submission.male') }}</option>
+                                    <option value="Female">{{ __('submission.female') }}</option>
                                 </select>
 
                                 @if ($errors->has('gender'))
@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('submission.address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address[]" value="{{ Auth::user()->address }}" required autofocus>
@@ -136,7 +136,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('submission.city') }}</label>
 
                             <div class="col-md-6">
                                 <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city[]" value="{{ Auth::user()->city }}" required autofocus>
@@ -150,7 +150,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('submission.country') }}</label>
 
                             <div class="col-md-6">
                                 <input id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country[]" value="{{ Auth::user()->country }}" required autofocus>
@@ -164,7 +164,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Zipcode') }}</label>
+                            <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('submission.zipcode') }}</label>
 
                             <div class="col-md-6">
                                 <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode[]" value="{{ Auth::user()->zipcode }}" required autofocus>
@@ -178,7 +178,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('submission.email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email[]" value="{{ Auth::user()->email }}" required>
@@ -192,7 +192,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('Telephone') }}</label>
+                            <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('submission.telephone') }}</label>
 
                             <div class="col-md-6">
                                 <input id="telephone" type="number" class="form-control{{ $errors->has('telephone') ? ' is-invalid' : '' }}" name="telephone[]" value="{{ Auth::user()->telephone }}" required autofocus>
@@ -206,7 +206,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="university" class="col-md-4 col-form-label text-md-right">{{ __('University') }}</label>
+                            <label for="university" class="col-md-4 col-form-label text-md-right">{{ __('submission.university') }}</label>
 
                             <div class="col-md-6">
                                 <input id="university" type="text" class="form-control{{ $errors->has('university') ? ' is-invalid' : '' }}" name="university[]" value="{{ Auth::user()->university }}" required autofocus>
@@ -220,7 +220,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="department" class="col-md-4 col-form-label text-md-right">{{ __('Department') }}</label>
+                            <label for="department" class="col-md-4 col-form-label text-md-right">{{ __('submission.department') }}</label>
 
                             <div class="col-md-6">
                                 <input id="department" type="text" class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department[]" value="{{ Auth::user()->department }}" required autofocus>
@@ -234,7 +234,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="facebook" class="col-md-4 col-form-label text-md-right">{{ __('Facebook(optional)') }}</label>
+                            <label for="facebook" class="col-md-4 col-form-label text-md-right">{{ __('submission.facebook') }}</label>
 
                             <div class="col-md-6">
                                 <input id="facebook" type="url" class="form-control{{ $errors->has('facebook') ? ' is-invalid' : '' }}" name="facebook[]" value="{{ Auth::user()->facebook }}" autofocus>
@@ -248,7 +248,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="twitter" class="col-md-4 col-form-label text-md-right">{{ __('Twitter(optional)') }}</label>
+                            <label for="twitter" class="col-md-4 col-form-label text-md-right">{{ __('submission.twitter') }}</label>
 
                             <div class="col-md-6">
                                 <input id="twitter" type="url" class="form-control{{ $errors->has('twitter') ? ' is-invalid' : '' }}" name="twitter[]" value="{{ Auth::user()->twitter }}" autofocus>
@@ -262,7 +262,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="google" class="col-md-4 col-form-label text-md-right">{{ __('Google(optional)') }}</label>
+                            <label for="google" class="col-md-4 col-form-label text-md-right">{{ __('submission.google') }}</label>
 
                             <div class="col-md-6">
                                 <input id="google" type="url" class="form-control{{ $errors->has('google') ? ' is-invalid' : '' }}" name="google[]" value="{{ Auth::user()->google }}" autofocus>
@@ -276,7 +276,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('LinkedIn(optional)') }}</label>
+                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('submission.linkedin') }}</label>
 
                             <div class="col-md-6">
                                 <input id="linkedin" type="url" class="form-control{{ $errors->has('linkedin') ? ' is-invalid' : '' }}" name="linkedin[]" value="{{ Auth::user()->linkedin }}" autofocus>
@@ -297,11 +297,11 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <a id="add_cooperator" class="btn btn-primary btn-success">
-                                {{ __('Add other contributors') }}
+                                {{ __('submission.add_other') }}
                             </a>
-                            
+
                             <a id="remove_cooperator" class="btn btn-primary btn-danger">
-                                {{ __('Remove contributor') }}
+                                {{ __('submission.remove_author') }}
                             </a>
                         </div>
                     </div>
@@ -309,11 +309,11 @@
 
 
                     <div class="card">
-                        <div class="card-header">{{ __('Category') }}</div>
+                        <div class="card-header">{{ __('submission.category') }}</div>
                         <div class="card-body">
 
                             <div class="form-group row">
-                                <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
+                                <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('submission.category') }}</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control{{ $errors->has('category') ? ' is-invalid' : '' }}" name="category" id="category" value="{{ old('category') }}">
@@ -335,11 +335,11 @@
                     </div>
 
                     <div class="card">
-                        <div class="card-header">{{ __('Content') }}</div>
+                        <div class="card-header">{{ __('submission.content') }}</div>
                         <div class="card-body">
 
                             <div class="form-group row">
-                                <label for="key_words" class="col-md-4 col-form-label text-md-right">{{ __('Key words') }}</label>
+                                <label for="key_words" class="col-md-4 col-form-label text-md-right">{{ __('submission.key_words') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="key_words" type="text" class="form-control{{ $errors->has('key_words') ? ' is-invalid' : '' }}" name="key_words" value="{{ old('key_words') }}" autofocus>
@@ -353,7 +353,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="abstract" class="col-md-4 col-form-label text-md-right">{{ __('Abstract') }}</label>
+                                <label for="abstract" class="col-md-4 col-form-label text-md-right">{{ __('submission.abstract') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea id="abstract" type="text" class="form-control{{ $errors->has('abstract') ? ' is-invalid' : '' }}" name="abstract" autofocus>{{ old('abstract') }}</textarea>
@@ -367,7 +367,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="thesis_name_upload" class="col-md-4 col-form-label text-md-right">{{ __('Upload thesis') }}</label>
+                                <label for="thesis_name_upload" class="col-md-4 col-form-label text-md-right">{{ __('submission.upload_thesis') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="thesis_name_upload" type="file" class="form-control" name="thesis_name_upload" autofocus>
@@ -384,11 +384,11 @@
                     </div>
 
                     <div class="card">
-                        <div class="card-header">{{ __('Conference declaration') }}</div>
+                        <div class="card-header">{{ __('submission.conference_selection') }}</div>
                         <div class="card-body">
 
                             <div class="form-group row">
-                                <label for="conference" class="col-md-4 col-form-label text-md-right">{{ __('Conference') }}</label>
+                                <label for="conference" class="col-md-4 col-form-label text-md-right">{{ __('submission.conference') }}</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control{{ $errors->has('conference') ? ' is-invalid' : '' }}" name="conference" id="conference" value="{{ old('conference') }}">
@@ -410,11 +410,11 @@
                     </div>
 
                     <div class="card">
-                        <div class="card-header">{{ __('Optional comment') }}</div>
+                        <div class="card-header">{{ __('submission.optional_comment') }}</div>
                         <div class="card-body">
 
                             <div class="form-group row">
-                                <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Comment') }}</label>
+                                <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('submission.comment') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea id="comment" type="text" class="form-control{{ $errors->has('comment') ? ' is-invalid' : '' }}" name="comment" autofocus>{{ old('comment') }}</textarea>
@@ -429,9 +429,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Create submission') }}
-                                    </button>
+                                    <input type="submit" class="btn btn-primary" value="{{ __('submission.create_submission') }}">
                                 </div>
                             </div>
                         </div>
