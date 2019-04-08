@@ -41,12 +41,9 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('conferences') }}">{{ __('app.conferences') }}</a>
-                            </li>
                             @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('submission') }}">{{ __('app.make_submission') }}</a>
+                                <a class="nav-link" href="{{ route('conferences') }}">{{ __('app.conferences') }}</a>
                             </li>
                             @endauth
                         </ul>

@@ -41,7 +41,7 @@
                     <a href="{{ route('conferences')}}" class="btn btn-info">{{__('conference_detail.back')}}</a>
                     @auth
                         <a href="{{ route('submissionlist')}}" class="btn btn-green">{{__('conference_detail.join_viewer')}}</a>
-                        <a href="{{ route('submission')}}" class="btn btn-green">{{__('conference_detail.join_presenter')}}</a>
+                        <a href="{{ route('submissioncreate',$conferences->id)}}" class="btn btn-green">{{__('conference_detail.join_presenter')}}</a>
                     @endauth
 
                 </div>

@@ -30,9 +30,7 @@ Auth::routes(['verify' => true]);
 //End of Auth routes
 
 //Guest routes
-Route::get('/conferencedetail/{id}', 'GuestController@conferencedetail')->name('conferencedetail');
 
-Route::get('/conferences', 'GuestController@conferences')->name('conferences');
 //End of Guest routes
 
 
@@ -45,9 +43,7 @@ Route::post('/editProfileUpdate/{id}', 'SubmitterController@editProfileUpdate')-
 
 Route::post('/editProfilePasswordChange/{id}','SubmitterController@editProfilePasswordChange')->name('editProfilePasswordChange');
 
-Route::get('/submission', 'SubmitterController@submission')->name('submission');
-
-Route::post('/submissioncreate', 'SubmitterController@submissioncreate')->name('submissioncreate');
+Route::get('/submissioncreate/{id}', 'SubmitterController@submissioncreate')->name('submissioncreate');
 
 Route::get('/submissionlist', 'SubmitterController@submissionlist')->name('submissionlist');
 
@@ -64,4 +60,8 @@ Route::get('/downloadPDF/{pdf}', 'SubmitterController@downloadPDF')->name('downl
 Route::get('/cooperatordelete/{id}', 'SubmitterController@cooperatordelete')->name('cooperatordelete');
 
 Route::get('/conferenceparticipationlist', 'SubmitterController@conferenceparticipationlist')->name('conferenceparticipationlist');
+
+Route::get('/conferencedetail/{id}', 'SubmitterController@conferencedetail')->name('conferencedetail');
+
+Route::get('/conferences', 'SubmitterController@conferences')->name('conferences');
 //End of Submitter routes
