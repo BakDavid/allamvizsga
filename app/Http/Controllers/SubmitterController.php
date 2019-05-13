@@ -25,7 +25,7 @@ class SubmitterController extends GuestController {
      * @return void
      */
     public function __construct() {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'submitter']);
     }
 
     /**

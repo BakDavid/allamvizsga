@@ -3,6 +3,11 @@
 return [
 
     'conferences' => 'Konferenciák',
+    'news' => 'Hírek',
+    'sections' => 'Szekciók',
+    'documents' => 'Dokumentumok',
+    'program' => 'Program',
+    'archive' => 'Archívum',
     'make_submission' => 'Dolgozat beküldése',
     'language' => 'Nyelv',
     'my_submission' => 'Dolgozataim',

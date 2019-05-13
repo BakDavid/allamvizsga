@@ -46,6 +46,21 @@
                                 <a class="nav-link" href="{{ route('conferences') }}">{{ __('app.conferences') }}</a>
                             </li>
                             @endauth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('news') }}">{{ __('app.news') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('sections') }}">{{ __('app.sections') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('documents') }}">{{ __('app.documents') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('program') }}">{{ __('app.program') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('archive') }}">{{ __('app.archive') }}</a>
+                            </li>
                         </ul>
 
                         <!-- Right Side Of Navbar -->

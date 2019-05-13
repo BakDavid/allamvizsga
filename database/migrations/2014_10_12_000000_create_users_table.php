@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name',50);
             $table->string('last_name',50);
-            $table->string('address',100);
-            $table->string('city',100);
-            $table->string('country',100);
-            $table->string('zipcode',6);
+            $table->string('address',100)->nullable();
+            $table->string('city',100)->nullable();
+            $table->string('country',100)->nullable();
+            $table->string('zipcode',6)->nullable();
             $table->string('email',50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('telephone',15);
@@ -32,8 +32,8 @@ class CreateUsersTable extends Migration
             $table->string('linkedin',100)->nullable();
             $table->string('photo')->nullable();
             $table->string('user_type',10);
-            $table->date('birth_date',10);
-            $table->string('gender',6);
+            $table->date('birth_date',10)->nullable();
+            $table->string('gender',6)->nullable();
             $table->string('deleted',1)->default("0");
             $table->string('activated',1)->default("0");
             $table->string('password');

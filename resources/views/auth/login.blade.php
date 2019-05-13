@@ -4,11 +4,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            @if ($errors->has('msg'))
+            <div class="alert alert-danger alert-dismissible">
+                <div class="{{ $errors->has('msg') ? ' is-invalid' : '' }}" name="msg" autofocus>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>{{ $errors->first('msg') }}</strong>
+                </div>
+            </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">{{ __('login_lang.login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('logincustom') }}">
                         @csrf
 
                         <div class="form-group row">

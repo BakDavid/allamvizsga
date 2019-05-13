@@ -3,6 +3,11 @@
 return [
 
     'conferences' => 'Conferences',
+    'news' => 'News',
+    'sections' => 'Sections',
+    'documents' => 'Documents',
+    'program' => 'Program',
+    'archive' => 'Archive',
     'make_submission' => 'Make submission',
     'language' => 'Language',
     'my_submission' => 'My submission',
