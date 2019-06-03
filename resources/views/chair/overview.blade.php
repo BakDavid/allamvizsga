@@ -18,11 +18,15 @@
                             <p>In the Conferences tab you can create, edit or delete conferences.</p>
                     </div>
                     <div class="card-row">
-                            <a href="{{ route('submissions')}}">{{ __('overview.Submissions') }}</a>
+                            <a href="{{ route('chairsubmissions')}}">{{ __('overview.Submissions') }}</a>
                             <p>In the Submissions tab you can edit or delete submissions that users have sent in.</p>
                     </div>
                     <div class="card-row">
                             <a href="{{ route('users')}}">{{ __('overview.Users') }}</a>
+                            <p>In the Users tab you can edit or delete users, also you can activate accounts.</p>
+                    </div>
+                    <div class="card-row">
+                            <a href="{{ route('categories')}}">{{ __('overview.Categories') }}</a>
                             <p>In the Users tab you can edit or delete users, also you can activate accounts.</p>
                     </div>
                     <div class="card-row">

@@ -10,5 +10,6 @@ return [
     'Documents' => 'Documents',
     'Mailing' => 'Mailing',
     'Settings' => 'Settings',
+    'Categories' => 'Categories',
 
 ];

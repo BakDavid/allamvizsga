@@ -5,6 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
+            @if ($errors->has('msgp'))
+            <div class="alert alert-success alert-dismissible">
+                <div class="{{ $errors->has('msgp') ? ' is-invalid' : '' }}" name="msgp" autofocus>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>{{ $errors->first('msgp') }}</strong>
+                </div>
+            </div>
+            @endif
+
             @if ($errors->has('msg'))
             <div class="alert alert-danger alert-dismissible">
                 <div class="{{ $errors->has('msg') ? ' is-invalid' : '' }}" name="msg" autofocus>

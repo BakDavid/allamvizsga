@@ -25,7 +25,7 @@ class CustomLoginController extends Controller
             }
             if($user->user_type == 'reviewer')
             {
-                return redirect()->route('banan');
+                return redirect()->route('review');
             }
             if($user->user_type == 'chair')
             {

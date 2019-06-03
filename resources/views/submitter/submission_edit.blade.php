@@ -110,169 +110,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.student') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <select class="form-control{{ $errors->has('student') ? ' is-invalid' : '' }}" name="student[]" id="student" value="{{ $coop->student }}">
-                                            <option
-                                            <?php if ($coop->student == "1"): ?>
-                                              selected
-                                          <?php endif; ?> value="1">{{__('submission_edit.yes')}}</option>
-                                            <option
-                                            <?php if ($coop->student == "0"): ?>
-                                              selected
-                                          <?php endif; ?> value="0">{{__('submission_edit.no')}}</option>
-                                        </select>
-                                    @else
-                                        <select disabled class="form-control{{ $errors->has('student') ? ' is-invalid' : '' }}" name="student[]" id="student" value="{{ $coop->student }}">
-                                            <option
-                                            <?php if ($coop->student == "1"): ?>
-                                              selected
-                                          <?php endif; ?> value="1">{{__('submission_edit.yes')}}</option>
-                                            <option
-                                            <?php if ($coop->student == "0"): ?>
-                                              selected
-                                          <?php endif; ?> value="0">{{__('submission_edit.no')}}</option>
-                                        </select>
-                                    @endif
-
-                                    @if ($errors->has('student'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('student') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.birth_date') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <input id="birth_date" type="date" class="form-control{{ $errors->has('birth_date') ? ' is-invalid' : '' }}" name="birth_date[]" value="{{ $coop->birth_date }}" required autofocus>
-                                    @else
-                                        <input disabled id="birth_date" type="date" class="form-control{{ $errors->has('birth_date') ? ' is-invalid' : '' }}" name="birth_date[]" value="{{ $coop->birth_date }}" required autofocus>
-                                    @endif
-
-                                    @if ($errors->has('birth_date'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('birth_date') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.gender') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender[]" id="gender" value="{{ $coop->gender }}">
-                                            <option
-                                              <?php if ($coop->gender == "Male"): ?>
-                                                selected
-                                            <?php endif; ?>>{{__('submission_edit.male')}}</option>
-                                            <option
-                                            <?php if ($coop->gender == "Female"): ?>
-                                              selected
-                                          <?php endif; ?>>{{__('submission_edit.female')}}</option>
-                                        </select>
-                                    @else
-                                        <select disabled class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender[]" id="gender" value="{{ $coop->gender }}">
-                                            <option
-                                              <?php if ($coop->gender == "Male"): ?>
-                                                selected
-                                            <?php endif; ?>>{{__('submission_edit.male')}}</option>
-                                            <option
-                                            <?php if ($coop->gender == "Female"): ?>
-                                              selected
-                                          <?php endif; ?>>{{__('submission_edit.female')}}</option>
-                                        </select>
-                                    @endif
-
-                                    @if ($errors->has('gender'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('gender') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.address') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address[]" value="{{ $coop->address }}" required autofocus>
-                                    @else
-                                        <input disabled id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address[]" value="{{ $coop->address }}" required autofocus>
-                                    @endif
-
-                                    @if ($errors->has('address'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.city') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city[]" value="{{ $coop->city }}" required autofocus>
-                                    @else
-                                        <input disabled id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city[]" value="{{ $coop->city }}" required autofocus>
-                                    @endif
-
-                                    @if ($errors->has('city'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('city') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.country') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <input id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country[]" value="{{ $coop->country }}" required autofocus>
-                                    @else
-                                        <input disabled id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country[]" value="{{ $coop->country }}" required autofocus>
-                                    @endif
-
-                                    @if ($errors->has('country'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('country') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.zipcode') }}</label>
-
-                                <div class="col-md-6">
-                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode[]" value="{{ $coop->zipcode }}" required autofocus>
-                                    @else
-                                        <input disabled id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode[]" value="{{ $coop->zipcode }}" required autofocus>
-                                    @endif
-
-                                    @if ($errors->has('zipcode'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('zipcode') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.email') }}</label>
 
                                 <div class="col-md-6">
@@ -331,9 +168,27 @@
 
                                 <div class="col-md-6">
                                     @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <input id="department" type="text" class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department[]" value="{{ $coop->department }}" required autofocus>
+                                        <select class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" id="department">
+                                            <option></option>
+                                            @foreach($categories as $cat)
+                                                <option
+                                                    <?php if ($cat->category_name == Auth::user()->department): ?>
+                                                      selected
+                                                    <?php endif; ?> value="{{$cat->category_name}}">{{$cat->category_name}}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     @else
-                                        <input disabled id="department" type="text" class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department[]" value="{{ $coop->department }}" required autofocus>
+                                        <select disabled class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" id="department">
+                                            <option></option>
+                                            @foreach($categories as $cat)
+                                                <option
+                                                    <?php if ($cat->category_name == Auth::user()->department): ?>
+                                                      selected
+                                                    <?php endif; ?> value="{{$cat->category_name}}">{{$cat->category_name}}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     @endif
 
                                     @if ($errors->has('department'))
@@ -344,6 +199,177 @@
                                 </div>
                             </div>
 
+                            <?php /*
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.student') }}</label>
+
+                                <div class="col-md-6">
+                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                        <select class="form-control{{ $errors->has('student') ? ' is-invalid' : '' }}" name="student[]" id="student" value="{{ $coop->student }}">
+                                            <option
+                                            <?php if ($coop->student == "1"): ?>
+                                              selected
+                                          <?php endif; ?> value="1">{{__('submission_edit.yes')}}</option>
+                                            <option
+                                            <?php if ($coop->student == "0"): ?>
+                                              selected
+                                          <?php endif; ?> value="0">{{__('submission_edit.no')}}</option>
+                                        </select>
+                                    @else
+                                        <select disabled class="form-control{{ $errors->has('student') ? ' is-invalid' : '' }}" name="student[]" id="student" value="{{ $coop->student }}">
+                                            <option
+                                            <?php if ($coop->student == "1"): ?>
+                                              selected
+                                          <?php endif; ?> value="1">{{__('submission_edit.yes')}}</option>
+                                            <option
+                                            <?php if ($coop->student == "0"): ?>
+                                              selected
+                                          <?php endif; ?> value="0">{{__('submission_edit.no')}}</option>
+                                        </select>
+                                    @endif
+
+                                    @if ($errors->has('student'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('student') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+
+                            </div>
+                            */ ?>
+
+
+                            <div class="form-group row">
+                                <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.birth_date') }}</label>
+
+                                <div class="col-md-6">
+                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                        <input id="birth_date" type="date" class="form-control{{ $errors->has('birth_date') ? ' is-invalid' : '' }}" name="birth_date[]" value="{{ $coop->birth_date }}" autofocus>
+                                    @else
+                                        <input disabled id="birth_date" type="date" class="form-control{{ $errors->has('birth_date') ? ' is-invalid' : '' }}" name="birth_date[]" value="{{ $coop->birth_date }}" autofocus>
+                                    @endif
+
+                                    @if ($errors->has('birth_date'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('birth_date') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <?php /*
+                            <div class="form-group row">
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.gender') }}</label>
+
+                                <div class="col-md-6">
+                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                        <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender[]" id="gender" value="{{ $coop->gender }}">
+                                            <option
+                                              <?php if ($coop->gender == "Male"): ?>
+                                                selected
+                                            <?php endif; ?>>{{__('submission_edit.male')}}</option>
+                                            <option
+                                            <?php if ($coop->gender == "Female"): ?>
+                                              selected
+                                          <?php endif; ?>>{{__('submission_edit.female')}}</option>
+                                        </select>
+                                    @else
+                                        <select disabled class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender[]" id="gender" value="{{ $coop->gender }}">
+                                            <option
+                                              <?php if ($coop->gender == "Male"): ?>
+                                                selected
+                                            <?php endif; ?>>{{__('submission_edit.male')}}</option>
+                                            <option
+                                            <?php if ($coop->gender == "Female"): ?>
+                                              selected
+                                          <?php endif; ?>>{{__('submission_edit.female')}}</option>
+                                        </select>
+                                    @endif
+
+                                    @if ($errors->has('gender'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            */ ?>
+
+                            <div class="form-group row">
+                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.address') }}</label>
+
+                                <div class="col-md-6">
+                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                        <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address[]" value="{{ $coop->address }}" autofocus>
+                                    @else
+                                        <input disabled id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address[]" value="{{ $coop->address }}" autofocus>
+                                    @endif
+
+                                    @if ($errors->has('address'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.city') }}</label>
+
+                                <div class="col-md-6">
+                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                        <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city[]" value="{{ $coop->city }}" autofocus>
+                                    @else
+                                        <input disabled id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city[]" value="{{ $coop->city }}" autofocus>
+                                    @endif
+
+                                    @if ($errors->has('city'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.country') }}</label>
+
+                                <div class="col-md-6">
+                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                        <input id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country[]" value="{{ $coop->country }}" autofocus>
+                                    @else
+                                        <input disabled id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country[]" value="{{ $coop->country }}" autofocus>
+                                    @endif
+
+                                    @if ($errors->has('country'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.zipcode') }}</label>
+
+                                <div class="col-md-6">
+                                    @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                        <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode[]" value="{{ $coop->zipcode }}" autofocus>
+                                    @else
+                                        <input disabled id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode[]" value="{{ $coop->zipcode }}" autofocus>
+                                    @endif
+
+                                    @if ($errors->has('zipcode'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('zipcode') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+
+                            <?php /*
                             <div class="form-group row">
                                 <label for="facebook" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.facebook') }}</label>
 
@@ -415,6 +441,7 @@
                                     @endif
                                 </div>
                             </div>
+                            */ ?>
 
                             @if(!$loop->first)
                                 <div class="form-group row mb-0">

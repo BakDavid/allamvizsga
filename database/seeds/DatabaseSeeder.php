@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder {
         $this->call(FactorySeeder::class);
 
         $this->call(SubmissionSeeder::class);
+
+        $this->call(ReviewerSeeder::class);
     }
 
 }

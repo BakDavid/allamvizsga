@@ -29,7 +29,7 @@
 
                     <form method="POST" action="{{ route('pageeditpost', $pages->id) }}">
                         @csrf
-                        
+
                         <textarea name="page_textarea" class="form-control">{{$pages->pages_content}}</textarea>
 
                         <div class="row" style="float:right;padding-right:10px">

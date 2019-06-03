@@ -26,8 +26,8 @@ class CreateConferencesTable extends Migration
             $table->string('address',100);
             $table->string('city',100);
             $table->string('country',100);
-            $table->string('zipcode',6);
-            $table->string('comment',3000);
+            $table->string('zipcode',6)->nullable();
+            $table->string('comment',3000)->nullable();
             $table->integer('conference_sponsor_id')->unsigned()->nullable();
             $table->string('participants')->default("0");
             $table->integer('max_participants')->nullable();

@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::view('/banan', 'welcome2')->name('banan');
+Route::get('/', 'GuestController@news');
 
 //Language select
 Route::get('/locale/{locale}', function ($locale) {
@@ -32,6 +28,12 @@ Auth::routes(['verify' => true]);
 //Custom Login routes
 Route::post('/login/custom','CustomLoginController@login')->name('logincustom');
 //End of Custom Login routes
+
+//Custom Register routes
+Route::get('/register/custom/{email_hash}','CustomRegisterController@register')->name('registercustom');
+
+Route::post('/register/custompost','CustomRegisterController@registerpost')->name('registercustompost');
+//End of Custom Register routes
 
 //Guest routes
 Route::get('/news', 'GuestController@news')->name('news');
@@ -79,7 +81,21 @@ Route::get('/conferences', 'SubmitterController@conferences')->name('conferences
 //End of Submitter routes
 
 //Reviewer routes
+Route::get('/review','ReviewerController@review')->name('review');
 
+Route::get('/editProfileRewiever', 'ReviewerController@editProfile')->name('editProfileRewiever');
+
+Route::post('/editProfileRewieverUpdate/{id}', 'ReviewerController@editProfileUpdate')->name('editProfileRewieverUpdate');
+
+Route::post('/editProfileRewieverPasswordChange/{id}','ReviewerController@editProfilePasswordChange')->name('editProfileRewieverPasswordChange');
+
+Route::get('/submissiondetailreviewer/{id}', 'ReviewerController@submissiondetail')->name('submissiondetailreviewer');
+
+Route::post('/reviewpost/{id}','ReviewerController@reviewpost')->name('reviewpost');
+
+Route::post('/revieweditpost/{id}','ReviewerController@revieweditpost')->name('revieweditpost');
+
+Route::get('/downloadPDFReviewer/{pdf}', 'ReviewerController@downloadPDF')->name('downloadPDFReviewer');
 //End of Reviewer routes
 
 
@@ -94,9 +110,37 @@ Route::post('/pageeditpost/{id}','ChairController@pageeditpost')->name('pageedit
 
 Route::get('/chairconferences','ChairController@conferences')->name('chairconferences');
 
-Route::get('/submissions','ChairController@submissions')->name('submissions');
+Route::get('/chairconferencesedit/{id}','ChairController@conferencesedit')->name('chairconferencesedit');
+
+Route::post('/chairconferenceseditpost/{id}','ChairController@conferenceseditpost')->name('chairconferenceseditpost');
+
+Route::get('/chairconferencesdelete/{id}','ChairController@conferencesdelete')->name('chairconferencesdelete');
+
+Route::get('/chairconferencescreate','ChairController@conferencescreate')->name('chairconferencescreate');
+
+Route::post('/chairconferencescreatepost','ChairController@conferencescreatepost')->name('chairconferencescreatepost');
+
+Route::get('/chairsubmissions','ChairController@submissions')->name('chairsubmissions');
+
+Route::get('/chairsubmissionsedit/{id}','ChairController@submissionsedit')->name('chairsubmissionsedit');
+
+Route::post('/chairsubmissionseditpost/{id}','ChairController@submissionseditpost')->name('chairsubmissionseditpost');
+
+Route::get('/chairsubmissionsdelete/{id}','ChairController@submissionsdelete')->name('chairsubmissionsdelete');
+
+Route::get('/chairsubmissionsassign','ChairController@chairsubmissionsassign')->name('chairsubmissionsassign');
+
+Route::post('/chairsubmissionsassignpost/{id}','ChairController@chairsubmissionsassignpost')->name('chairsubmissionsassignpost');
 
 Route::get('/users','ChairController@users')->name('users');
+
+Route::get('/categories','ChairController@categories')->name('categories');
+
+Route::post('/categoriescreatepost','ChairController@categoriescreatepost')->name('categoriescreatepost');
+
+Route::post('/categorieseditpost','ChairController@categorieseditpost')->name('categorieseditpost');
+
+Route::get('/categoriesdelete/{id}','ChairController@categoriesdelete')->name('categoriesdelete');
 
 Route::get('/usersdelete/{id}','ChairController@usersdelete')->name('usersdelete');
 
@@ -110,6 +154,12 @@ Route::get('/chairdocuments','ChairController@documents')->name('chairdocuments'
 
 Route::get('/mailing','ChairController@mailing')->name('mailing');
 
+Route::post('/mailingpost','ChairController@mailingpost')->name('mailingpost');
+
+Route::post('/directmailpost','ChairController@directmailpost')->name('directmailpost');
+
+Route::post('/multiplemailpost','ChairController@multiplemailpost')->name('multiplemailpost');
+
 Route::get('/settings','ChairController@settings')->name('settings');
 
 Route::get('/editProfileChair','ChairController@editProfile')->name('editProfileChair');
@@ -117,6 +167,8 @@ Route::get('/editProfileChair','ChairController@editProfile')->name('editProfile
 Route::post('/updateProfileChair/{id}','ChairController@editProfileUpdate')->name('updateProfileChair');
 
 Route::post('/editProfilePasswordChangeChair/{id}','ChairController@editProfilePasswordChange')->name('editProfilePasswordChangeChair');
+
+Route::get('/chairdownloadPDF/{pdf}', 'ChairController@downloadPDF')->name('chairdownloadPDF');
 //End of Chair routes
 
 //Admin routes

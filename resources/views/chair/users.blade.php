@@ -23,7 +23,7 @@
 
                 <div class="card-body">
 
-                    <div class="table-responsive">
+                    <div class="table-responsive table-bordered">
                         <table id="myDataTable" class="table table-hover btn-table">
                             <thead>
                                 <tr>

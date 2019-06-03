@@ -10,10 +10,14 @@ class Cooperator extends Model
     use Notifiable;
 
     protected $fillable = [
-        'first_name','last_name', 'email', 'student',
+        'first_name','last_name', 'email',
+        //'student',
         'address', 'city', 'country', 'zipcode', 'telephone',
-        'university', 'department', 'facebook', 'google',
-        'twitter', 'linkedin', 'birth_date', 'gender',
+        'university', 'department',
+        //'facebook', 'google',
+        //'twitter', 'linkedin',
+        'birth_date',
+        //'gender',
     ];
 
     protected $hidden = [

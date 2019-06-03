@@ -48,10 +48,23 @@
                                 <a class="nav-link" href="{{ route('chairconferences') }}">{{ __('chairapp.conferences') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('submissions') }}">{{ __('chairapp.submissions') }}</a>
+                                <div class="dropdown">
+                                  <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{__('chairapp.submissions')}}
+                                  </a>
+
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      <a class="dropdown-item" href="{{ route('chairsubmissions') }}">{{ __('chairapp.submissions_list') }}</a>
+                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions_assign') }}</a>
+                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions_edit_assign') }}</a>
+                                  </div>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users') }}">{{ __('chairapp.users') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('categories') }}">{{ __('chairapp.categories') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('chairdocuments') }}">{{ __('chairapp.documents') }}</a>
@@ -61,6 +74,19 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('settings') }}">{{ __('chairapp.settings') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                  <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{__('chairapp.export')}}
+                                  </a>
+
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      <a class="dropdown-item" href="{{ route('chairsubmissions') }}">{{ __('chairapp.submissions_list') }}</a>
+                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions_assign') }}</a>
+                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions_edit_assign') }}</a>
+                                  </div>
+                                </div>
                             </li>
                             @endauth
                         </ul>

@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder {
-
     /**
      * Seed the application's database.
      *
@@ -32,8 +31,16 @@ class UserSeeder extends Seeder {
             'email' => 'reviewer@gmail.com',
             'email_verified_at' => Carbon\Carbon::now(),
             'user_type' => 'reviewer',
+            'department' => 'Teszt kategoria',
         ]);
 
+        factory(App\User::class)->create([
+            'first_name' => 'Reviewer',
+            'last_name' => 'Man 2',
+            'email' => 'reviewer2@gmail.com',
+            'email_verified_at' => Carbon\Carbon::now(),
+            'user_type' => 'reviewer',
+            'department' => 'Teszt kategoria',
+        ]);
     }
-
 }

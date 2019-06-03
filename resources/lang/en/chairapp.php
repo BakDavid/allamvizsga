@@ -7,6 +7,7 @@ return [
     'pages' => 'Pages',
     'submissions' => 'Submissions',
     'users' => 'Users',
+    'categories' => 'Categories',
     'documents' => 'Documents',
     'mailing' => 'Mailing',
     'settings' => 'Settings',
@@ -18,5 +19,8 @@ return [
     'english' => 'English',
     'hungarian' => 'Hungarian',
     'romanian' => 'Romanian',
+    'submissions_list' => 'List',
+    'submissions_assign' => 'Assign',
+    'submissions_edit_assign' => 'Edit assignation',
 
 ];

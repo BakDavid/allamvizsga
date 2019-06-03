@@ -87,7 +87,13 @@
                             <label for="department" class="col-md-4 col-form-label text-md-right">{{ __('register_lang.department') }}</label>
 
                             <div class="col-md-6">
-                                <input id="department" type="text" class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" title="{{ __('register_lang.department_title')}}" value="{{ old('department') }}" required autofocus>
+
+                                <select class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" id="department" title="{{ __('register_lang.department_title')}}" required autofocus>
+                                    <option></option>
+                                    @foreach($category as $cat)
+                                        <option value="{{$cat->category_name}}">{{$cat->category_name}}</option>
+                                    @endforeach
+                                </select>
 
                                 @if ($errors->has('department'))
                                     <span class="invalid-feedback" role="alert">

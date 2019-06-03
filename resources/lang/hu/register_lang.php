@@ -37,5 +37,6 @@ return [
     'password_confirm' => 'Jelszó megerősítése',
     'password_confirm_title' => 'Erősitsd meg az előbb beírt jelszót.',
     'captcha' => 'Captcha',
+    'code' => 'Kód',
 
 ];

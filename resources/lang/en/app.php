@@ -19,5 +19,7 @@ return [
     'english' => 'English',
     'hungarian' => 'Hungarian',
     'romanian' => 'Romanian',
+    'review' => 'Review',
+    'submissions' => 'Submissions',
 
 ];

@@ -52,6 +52,74 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.email') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ Auth::user()->email }}" required>
+
+                                @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.telephone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="telephone" type="number" class="form-control{{ $errors->has('telephone') ? ' is-invalid' : '' }}" name="telephone" value="{{ Auth::user()->telephone }}" required autofocus>
+
+                                @if ($errors->has('telephone'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('telephone') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="university" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.university') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="university" type="text" class="form-control{{ $errors->has('university') ? ' is-invalid' : '' }}" name="university" value="{{ Auth::user()->university }}" required autofocus>
+
+                                @if ($errors->has('university'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('university') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="department" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.department') }}</label>
+
+                            <div class="col-md-6">
+
+                                <select class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" id="department">
+                                    <option></option>
+                                    @foreach($category as $cat)
+                                        <option
+                                            <?php if ($cat->category_name == Auth::user()->department): ?>
+                                              selected
+                                            <?php endif; ?> value="{{$cat->category_name}}">{{$cat->category_name}}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('department'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('department') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
                             <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.birth_date') }}</label>
 
                             <div class="col-md-6">
@@ -65,6 +133,7 @@
                             </div>
                         </div>
 
+                        <!--
                         <div class="form-group row">
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.gender') }}</label>
 
@@ -81,6 +150,7 @@
                                 @endif
                             </div>
                         </div>
+                        -->
 
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.address') }}</label>
@@ -138,62 +208,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.email') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ Auth::user()->email }}" required>
 
-                                @if ($errors->has('email'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.telephone') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="telephone" type="number" class="form-control{{ $errors->has('telephone') ? ' is-invalid' : '' }}" name="telephone" value="{{ Auth::user()->telephone }}" required autofocus>
-
-                                @if ($errors->has('telephone'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('telephone') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="university" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.university') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="university" type="text" class="form-control{{ $errors->has('university') ? ' is-invalid' : '' }}" name="university" value="{{ Auth::user()->university }}" required autofocus>
-
-                                @if ($errors->has('university'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('university') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="department" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.department') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="department" type="text" class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" value="{{ Auth::user()->department }}" required autofocus>
-
-                                @if ($errors->has('department'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('department') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
+                        <!--
                         <div class="form-group row">
                             <label for="facebook" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.facebook') }}</label>
 
@@ -249,6 +266,7 @@
                                 @endif
                             </div>
                         </div>
+                    -->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

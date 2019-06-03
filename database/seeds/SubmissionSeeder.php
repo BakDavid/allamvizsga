@@ -22,9 +22,25 @@ class SubmissionSeeder extends Seeder {
             'updated_at' => Carbon\Carbon::now(),
         ]);
 
+        DB::table('submissions')->insert([
+            'title' => 'Teszt submission 2',
+            'key_words' => 'Mas teszt',
+            'abstract' => 'Ez egy rovidebb absztrakt, melyet teszt celjabol hoztam letre 2.',
+            'thesis_name_upload' => 'TesztFajl.docx',
+            'comment' => 'Komment a submissionnek teszt celjabol 2',
+            'category_id' => '1',
+            'created_at' => Carbon\Carbon::now(),
+            'updated_at' => Carbon\Carbon::now(),
+        ]);
+
         DB::table('user__submissions')->insert([
             'user_id' => '1',
             'submission_id' => '1',
+        ]);
+
+        DB::table('user__submissions')->insert([
+            'user_id' => '5',
+            'submission_id' => '2',
         ]);
 
         DB::table('submission__conferences')->insert([
@@ -32,11 +48,16 @@ class SubmissionSeeder extends Seeder {
             'conference_id' => '1',
         ]);
 
+        DB::table('submission__conferences')->insert([
+            'submission_id' => '2',
+            'conference_id' => '1',
+        ]);
+
         DB::table('cooperators')->insert([
             'first_name' => 'Bak',
             'last_name' => 'David',
             'email' => 'bak.david96@gmail.com',
-            'student' => '1',
+            //'student' => '1',
             'address' => 'Teszt utca',
             'city' => 'Teszt varos',
             'country' => 'Teszt orszag',
@@ -45,14 +66,14 @@ class SubmissionSeeder extends Seeder {
             'university' => 'Sapientia Teszt',
             'department' => 'Szamitastechnika Teszt',
             'birth_date' => '1996-02-02',
-            'gender' => 'Male',
+            //'gender' => 'Male',
         ]);
 
         DB::table('cooperators')->insert([
             'first_name' => 'Jancsi',
             'last_name' => 'Ferko',
             'email' => 'ferko@gmail.com',
-            'student' => '1',
+            //'student' => '1',
             'address' => 'Teszt utca 2',
             'city' => 'Teszt varos 2',
             'country' => 'Teszt orszag 2',
@@ -61,7 +82,7 @@ class SubmissionSeeder extends Seeder {
             'university' => 'Sapientia Teszt 2',
             'department' => 'Szamitastechnika Teszt 2',
             'birth_date' => '1996-02-02',
-            'gender' => 'Male',
+            //'gender' => 'Male',
         ]);
 
         DB::table('submission__cooperators')->insert([
@@ -72,6 +93,11 @@ class SubmissionSeeder extends Seeder {
         DB::table('submission__cooperators')->insert([
             'submission_id' => '1',
             'cooperator_id' => '2',
+        ]);
+
+        DB::table('submission__cooperators')->insert([
+            'submission_id' => '2',
+            'cooperator_id' => '1',
         ]);
     }
 

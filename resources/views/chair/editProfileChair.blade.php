@@ -52,93 +52,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.birth_date') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="birth_date" type="date" class="form-control{{ $errors->has('birth_date') ? ' is-invalid' : '' }}" name="birth_date" value="{{ Auth::user()->birth_date }}" required autofocus>
-
-                                @if ($errors->has('birth_date'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('birth_date') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.gender') }}</label>
-
-                            <div class="col-md-6">
-                                <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" id="gender" value="{{ Auth::user()->gender }}">
-                                    <option>{{__('editProfile.male')}}</option>
-                                    <option>{{__('editProfile.female')}}</option>
-                                </select>
-
-                                @if ($errors->has('gender'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('gender') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ Auth::user()->address }}" required autofocus>
-
-                                @if ($errors->has('address'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('address') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.city') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ Auth::user()->city }}" required autofocus>
-
-                                @if ($errors->has('city'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('city') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.country') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" value="{{ Auth::user()->country }}" required autofocus>
-
-                                @if ($errors->has('country'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('country') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.zipcode') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" value="{{ Auth::user()->zipcode }}" required autofocus>
-
-                                @if ($errors->has('zipcode'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('zipcode') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.email') }}</label>
 
                             <div class="col-md-6">
@@ -195,56 +108,70 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="facebook" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.facebook') }}</label>
+                            <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.birth_date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="facebook" type="url" class="form-control{{ $errors->has('facebook') ? ' is-invalid' : '' }}" name="facebook" value="{{ Auth::user()->facebook }}" autofocus>
+                                <input id="birth_date" type="date" class="form-control{{ $errors->has('birth_date') ? ' is-invalid' : '' }}" name="birth_date" value="{{ Auth::user()->birth_date }}" required autofocus>
 
-                                @if ($errors->has('facebook'))
+                                @if ($errors->has('birth_date'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('facebook') }}</strong>
+                                    <strong>{{ $errors->first('birth_date') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="twitter" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.twitter') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="twitter" type="url" class="form-control{{ $errors->has('twitter') ? ' is-invalid' : '' }}" name="twitter" value="{{ Auth::user()->twitter }}" autofocus>
+                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ Auth::user()->address }}" required autofocus>
 
-                                @if ($errors->has('twitter'))
+                                @if ($errors->has('address'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('twitter') }}</strong>
+                                    <strong>{{ $errors->first('address') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="google" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.google') }}</label>
+                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.city') }}</label>
 
                             <div class="col-md-6">
-                                <input id="google" type="url" class="form-control{{ $errors->has('google') ? ' is-invalid' : '' }}" name="google" value="{{ Auth::user()->google }}" autofocus>
+                                <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ Auth::user()->city }}" required autofocus>
 
-                                @if ($errors->has('google'))
+                                @if ($errors->has('city'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('google') }}</strong>
+                                    <strong>{{ $errors->first('city') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="linkedin" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.linkedin') }}</label>
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.country') }}</label>
 
                             <div class="col-md-6">
-                                <input id="linkedin" type="url" class="form-control{{ $errors->has('linkedin') ? ' is-invalid' : '' }}" name="linkedin" value="{{ Auth::user()->linkedin }}" autofocus>
+                                <input id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" value="{{ Auth::user()->country }}" required autofocus>
 
-                                @if ($errors->has('linkedin'))
+                                @if ($errors->has('country'))
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('linkedin') }}</strong>
+                                    <strong>{{ $errors->first('country') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('editProfile.zipcode') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" value="{{ Auth::user()->zipcode }}" required autofocus>
+
+                                @if ($errors->has('zipcode'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('zipcode') }}</strong>
                                 </span>
                                 @endif
                             </div>

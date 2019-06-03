@@ -37,5 +37,6 @@ return [
     'password_confirm' => 'Confirm password',
     'password_confirm_title' => 'Confirm the password you typed earlier.',
     'captcha' => 'Captcha',
+    'code' => 'Code',
 
 ];

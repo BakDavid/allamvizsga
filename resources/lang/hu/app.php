@@ -19,5 +19,7 @@ return [
     'english' => 'Angol',
     'hungarian' => 'Magyar',
     'romanian' => 'Román',
+    'review' => 'Bírálás',
+    'submissions' => 'Dolgozatok',
 
 ];
