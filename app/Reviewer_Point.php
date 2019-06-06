@@ -10,6 +10,6 @@ class Reviewer_Point extends Model
     use Notifiable;
 
     protected $hidden = [
-        'remember_token', 'user_id', 'point_id'
+        //'remember_token', 'user_id', 'point_id'
     ];
 }

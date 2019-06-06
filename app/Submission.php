@@ -25,6 +25,6 @@ class Submission extends Model
      * @var array
      */
     protected $hidden = [
-        'remember_token', 'category_id', 'deleted',
+        //'remember_token', 'category_id', 'deleted',
     ];
 }

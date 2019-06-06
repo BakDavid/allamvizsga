@@ -10,6 +10,6 @@ class Reviewer_Submission extends Model
     use Notifiable;
 
     protected $hidden = [
-        'remember_token', 'user_id', 'submission_id'
+        //'remember_token', 'user_id', 'submission_id'
     ];
 }

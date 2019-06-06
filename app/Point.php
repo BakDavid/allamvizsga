@@ -30,6 +30,6 @@ class Point extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'remember_token','full_point',
+        //'remember_token','full_point',
     ];
 }

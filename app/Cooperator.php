@@ -21,6 +21,6 @@ class Cooperator extends Model
     ];
 
     protected $hidden = [
-        'remember_token',
+        //'remember_token',
     ];
 }

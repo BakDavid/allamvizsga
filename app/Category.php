@@ -14,6 +14,6 @@ class Category extends Model
     ];
 
     protected $hidden = [
-        'remember_token', 'deleted',
+        //'remember_token', 'deleted',
     ];
 }

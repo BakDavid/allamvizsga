@@ -162,6 +162,10 @@ Route::post('/multiplemailpost','ChairController@multiplemailpost')->name('multi
 
 Route::get('/settings','ChairController@settings')->name('settings');
 
+Route::get('/export_database','ChairController@export_database')->name('export_database');
+
+Route::post('/export_database_post','ChairController@export_database_post')->name('export_database_post');
+
 Route::get('/editProfileChair','ChairController@editProfile')->name('editProfileChair');
 
 Route::post('/updateProfileChair/{id}','ChairController@editProfileUpdate')->name('updateProfileChair');

@@ -10,6 +10,6 @@ class Submission_Point extends Model
     use Notifiable;
 
     protected $hidden = [
-        'remember_token', 'point_id', 'submission_id'
+        //'remember_token', 'point_id', 'submission_id'
     ];
 }

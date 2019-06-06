@@ -22,5 +22,9 @@ return [
     'submissions_list' => 'List',
     'submissions_assign' => 'Assign',
     'submissions_edit_assign' => 'Edit assignation',
+    'export' => 'Export',
+    'export_database' => 'Export database',
+    'database' => 'Database',
+    'submissions_points' => 'Submissions points',
 
 ];

@@ -82,9 +82,9 @@
                                   </a>
 
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                      <a class="dropdown-item" href="{{ route('chairsubmissions') }}">{{ __('chairapp.submissions_list') }}</a>
-                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions_assign') }}</a>
-                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions_edit_assign') }}</a>
+                                      <a class="dropdown-item" href="{{ route('export_database') }}">{{ __('chairapp.database') }}</a>
+                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions_points') }}</a>
+                                      <a class="dropdown-item" href="{{ route('chairsubmissionsassign') }}">{{ __('chairapp.submissions') }}</a>
                                   </div>
                                 </div>
                             </li>

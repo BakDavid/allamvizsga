@@ -17,6 +17,6 @@ class Conference extends Model
     ];
 
     protected $hidden = [
-        'remember_token','deleted','conference_sponsor_id'
+        //'remember_token','deleted','conference_sponsor_id'
     ];
 }

@@ -22,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
         //'facebook', 'google',
         //'twitter', 'linkedin', 'photo',
         'user_type',
-        //'birth_date', 'gender', 
+        //'birth_date', 'gender',
         'deleted', 'activated'
     ];
 
@@ -32,6 +32,6 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        //'password', 'remember_token',
     ];
 }

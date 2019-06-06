@@ -18,6 +18,20 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Mail;
 use Storage;
+use Excel;
+use App\Exports\UsersExport;
+use App\Exports\CategoriesExport;
+use App\Exports\ConferencesExport;
+use App\Exports\CooperatorsExport;
+use App\Exports\PagesExport;
+use App\Exports\PointsExport;
+use App\Exports\Reviewer_PointsExport;
+use App\Exports\Reviewer_SubmissionsExport;
+use App\Exports\Submission_ConferencesExport;
+use App\Exports\Submission_CooperatorsExport;
+use App\Exports\Submission_PointsExport;
+use App\Exports\SubmissionsExport;
+use App\Exports\User_SubmissionsExport;
 
 class ChairController extends Controller {
 
@@ -428,8 +442,8 @@ class ChairController extends Controller {
         $submission = Submission::where('submissions.deleted','0')
                                 ->whereNotIn('submissions.id',$reviewer_submission)
                                 ->join('categories','submissions.category_id','categories.id')
-                                //->chunk(1)
                                 ->select('submissions.*','categories.category_name')
+                                ->limit(10)
                                 ->get();
 
         $reviewer = User::where('deleted','0')->where('user_type','reviewer')->where('email_verified_at','!=',null)->get();
@@ -711,6 +725,48 @@ class ChairController extends Controller {
     public function settings()
     {
         return view('chair/settings');
+    }
+
+    public function export_database()
+    {
+        return view('chair/export_database');
+    }
+
+    public function export_database_post(Request $request)
+    {
+        switch($request->input('export_database')){
+            //case "All":
+            //    return Excel::download(new UsersExport,'users.xlsx');
+            case "Users":
+                return Excel::download(new UsersExport,'users.xlsx');
+            case "Categories":
+                return Excel::download(new CategoriesExport,'categories.xlsx');
+            case "Conferences":
+                return Excel::download(new ConferencesExport,'conferences.xlsx');
+            case "Cooperators":
+                return Excel::download(new CooperatorsExport,'cooperators.xlsx');
+            case "Pages":
+                return Excel::download(new PagesExport,'pages.xlsx');
+            case "Points":
+                return Excel::download(new PointsExport,'points.xlsx');
+            case "Reviewer_Points":
+                return Excel::download(new Reviewer_PointsExport,'reviewer_points.xlsx');
+            case "Reviewer_Submissions":
+                return Excel::download(new Reviewer_SubmissionsExport,'reviewer_submissions.xlsx');
+            case "Submission_Conferences":
+                return Excel::download(new Submission_ConferencesExport,'submission_conferences.xlsx');
+            case "Submission_Cooperators":
+                return Excel::download(new Submission_CooperatorsExport,'submission_cooperators.xlsx');
+            case "Submission_Points":
+                return Excel::download(new Submission_PointsExport,'submission_points.xlsx');
+            case "Submission":
+                return Excel::download(new SubmissionsExport,'submissions.xlsx');
+            case "User_Submissions":
+                return Excel::download(new User_SubmissionsExport,'user_submissions.xlsx');
+            default:
+                return redirect()->back();
+        }
+
     }
 
     public function editProfile() {

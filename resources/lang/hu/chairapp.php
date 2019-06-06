@@ -22,5 +22,9 @@ return [
     'submissions_list' => 'Lista',
     'submissions_assign' => 'Elosztás',
     'submissions_edit_assign' => 'Elosztás szerkesztése',
+    'export' => 'Exportálás',
+    'export_database' => 'Adatbázis exportálása',
+    'database' => 'Adatbázis',
+    'submissions_points' => 'Dolgozat pontok',
 
 ];
