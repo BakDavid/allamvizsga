@@ -9,6 +9,7 @@ $factory->define(App\Conference::class, function (Faker $faker) {
         'application_deadline' => $faker->dateTimeThisDecade($max = '+10 years'),
         'abstract_upload_deadline' => $faker->dateTimeThisDecade($max = '+10 years'),
         'thesis_upload_deadline' => $faker->dateTimeThisDecade($max = '+10 years'),
+        'review_deadline' => $faker->dateTimeThisDecade($max = '+10 years'),
         'conference_day' => $faker->dateTimeThisDecade($max = '+10 years'),
         'address' => $faker->address,
         'city' => $faker->city,

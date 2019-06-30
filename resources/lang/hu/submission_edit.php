@@ -45,4 +45,9 @@ return [
     'no_file' => 'Nincs fájl feltöltve még!',
     'cancel' => 'Mégse',
     'update' => 'Frissités',
+    'advisor' => 'Felügyelő',
+    'advisor_no' => 'Felügyelő nem ellenőrzött',
+    'advisor_yes' => 'Felügyelő ellenőrzött',
+    'advisor_name' => 'Felügyelő(k) neve',
+    'advisor_email' => 'Felügyelő emailje',
 ];

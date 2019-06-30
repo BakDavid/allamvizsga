@@ -14,6 +14,7 @@ use App\Cooperator;
 use App\Submission_Conference;
 use App\Category;
 use App\Reviewer_Submission;
+use App\Sponsor;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Mail;
@@ -33,10 +34,15 @@ use App\Exports\Submission_PointsExport;
 use App\Exports\SubmissionsExport;
 use App\Exports\User_SubmissionsExport;
 
-class ChairController extends Controller {
+class ChairController extends BaseController {
 
     public function __construct() {
         $this->middleware('chair');
+
+        $allSponsor = Sponsor::where('deleted','0')->get();
+
+        // Sharing is caring
+        \View::share('allSponsor', $allSponsor);    
     }
 
     public function overview()
@@ -440,6 +446,7 @@ class ChairController extends Controller {
 
         //Limit to 10 the submission
         $submission = Submission::where('submissions.deleted','0')
+                                ->where('submissions.advisor_verified_at','!=',null)
                                 ->whereNotIn('submissions.id',$reviewer_submission)
                                 ->join('categories','submissions.category_id','categories.id')
                                 ->select('submissions.*','categories.category_name')
@@ -604,7 +611,6 @@ class ChairController extends Controller {
         $category = Category::where('id',$request->input('category'))->first();
 
         set_time_limit(0);
-
         //vegigmenni a tomb elemein, ellenorizni hogy email formatuma van-e, majd ellenorizni hogy adatbazisba mar szarepel-e
         foreach ($reviewers as $reviewer) {
             if (filter_var($reviewer, FILTER_VALIDATE_EMAIL)) {
@@ -631,7 +637,6 @@ class ChairController extends Controller {
                 }
             }
         }
-
         return redirect()->back()->withErrors(array('msg' => 'Reviewer mails sent successfully!'));
     }
 
@@ -724,7 +729,74 @@ class ChairController extends Controller {
 
     public function settings()
     {
-        return view('chair/settings');
+        $sponsors = Sponsor::where('deleted','0')->get();
+
+        return view('chair/settings')->with('sponsors',$sponsors);
+    }
+
+    public function sponsorcreate()
+    {
+        return view('chair/sponsors_create');
+    }
+
+    public function sponsorcreatepost(Request $request)
+    {
+        //dd($request);
+        //Minimalis validalas szukseges talan
+        $sponsor = new Sponsor();
+        $sponsor->sponsor_name = $request->input('sponsor_name');
+        $sponsor->sponsor_url = $request->input('sponsor_link');
+
+        //Le kell kezelni a fajl tipusat
+        if ($request->hasFile('sponsor_image')) {
+            $file = $request->file('sponsor_image');
+            $name = uniqid() . time() . $file->getClientOriginalName();
+            $destinationPath = '/image/sponsors/' . $name;
+            Storage::put($destinationPath,file_get_contents($file));
+
+            $sponsor->sponsor_image = $name;
+        }
+        else {
+            return redirect()->back()->withErrors(array('errmsg' => 'You must provide a sponsor image!'));
+        }
+        $sponsor->save();
+
+        return redirect()->back()->withErrors(array('msg' => 'Sponsor created successfully!'));
+    }
+
+    public function sponsordelete($id)
+    {
+        $sponsor = Sponsor::where('id',$id)->first();
+        $sponsor->deleted = '1';
+        $sponsor->save();
+
+        return redirect()->back()->withErrors(array('msg' => $sponsor->sponsor_name . ' sponsor deleted successfully!'));
+    }
+
+    public function sponsoredit($id)
+    {
+        $sponsor = Sponsor::where('id',$id)->first();
+
+        return view('chair/sponsors_edit')->with('sponsor',$sponsor);
+    }
+
+    public function sponsoreditpost(Request $request,$id)
+    {
+        $sponsor = Sponsor::where('id',$id)->first();
+        $sponsor->sponsor_name = $request->input('sponsor_name');
+        $sponsor->sponsor_url = $request->input('sponsor_link');
+
+        if ($request->hasFile('sponsor_image')) {
+            $file = $request->file('sponsor_image');
+            $name = uniqid() . time() . $file->getClientOriginalName();
+            $destinationPath = '/image/sponsors/' . $name;
+            Storage::put($destinationPath,file_get_contents($file));
+
+            $sponsor->sponsor_image = $name;
+        }
+        $sponsor->save();
+
+        return redirect()->back()->withErrors(array('msg' => $sponsor->sponsor_name . ' sponsor updated successfully!'));
     }
 
     public function export_database()

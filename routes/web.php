@@ -45,6 +45,8 @@ Route::get('/documents', 'GuestController@documents')->name('documents');
 Route::get('/program', 'GuestController@program')->name('program');
 
 Route::get('/archive', 'GuestController@archive')->name('archive');
+
+Route::get('/advisor_check/{id}', 'GuestController@advisor_check')->name('advisor_check');
 //End of Guest routes
 
 
@@ -161,6 +163,16 @@ Route::post('/directmailpost','ChairController@directmailpost')->name('directmai
 Route::post('/multiplemailpost','ChairController@multiplemailpost')->name('multiplemailpost');
 
 Route::get('/settings','ChairController@settings')->name('settings');
+
+Route::get('/sponsorcreate','ChairController@sponsorcreate')->name('sponsorcreate');
+
+Route::post('/sponsorcreatepost','ChairController@sponsorcreatepost')->name('sponsorcreatepost');
+
+Route::get('/sponsordelete/{id}','ChairController@sponsordelete')->name('sponsordelete');
+
+Route::get('/sponsoredit/{id}','ChairController@sponsoredit')->name('sponsoredit');
+
+Route::post('/sponsoreditpost/{id}','ChairController@sponsoreditpost')->name('sponsoreditpost');
 
 Route::get('/export_database','ChairController@export_database')->name('export_database');
 

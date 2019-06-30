@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 
-class CustomLoginController extends Controller
+class CustomLoginController extends BaseController
 {
 
     public function login(Request $request)

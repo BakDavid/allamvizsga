@@ -19,6 +19,17 @@
                     <p><strong>{{__('submission_detail.key_words')}}</strong> {{ $submission->key_words }} </p>
                     <p><strong>{{__('submission_detail.abstract')}}</strong> {{ $submission->abstract }} </p>
                     <p><strong>{{__('submission_detail.comment')}}</strong> {{ $submission->comment }} </p>
+                    <p><strong>{{__('submission_detail.advisor_name')}}</strong> {{ $submission->advisor_name }} </p>
+                    <p><strong>{{__('submission_detail.advisor_email')}}</strong> {{ $submission->advisor_email }} </p>
+                    @if($submission->advisor_verified_at == null)
+                        <p><strong>{{__('submission_detail.advisor_verified_at')}}</strong>
+                            <strong class="text-danger">{{ __('submission_detail.advisor_verified_at_no') }} </strong>
+                        </p>
+                    @else
+                        <p><strong>{{__('submission_detail.advisor_verified_at')}}</strong>
+                            <strong class="text-success">{{ __('submission_detail.advisor_verified_at_yes') }} </strong>
+                        </p>
+                    @endif
                     <p><strong>{{__('submission_detail.uploaded_thesis')}}</strong>
                         @if($submission->thesis_name_upload != null)
                             <a href="{{ route('downloadPDF',$submission->thesis_name_upload)}}">{{ $submission->thesis_name_upload }}</a>

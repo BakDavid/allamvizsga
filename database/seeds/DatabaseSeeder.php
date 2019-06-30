@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder {
      */
     public function run() {
         // $this->call(UsersTableSeeder::class);
+
+        /* First tests
         $this->call(PageSeeder::class);
 
         $this->call(UserSeeder::class);
@@ -22,6 +24,13 @@ class DatabaseSeeder extends Seeder {
         $this->call(SubmissionSeeder::class);
 
         $this->call(ReviewerSeeder::class);
+        */
+
+        //MTDK adatok seedje
+        $this->call(PageSeeder::class);
+
+        $this->call(MTDKSeeder::class);
+        //MTDK adatok seedjenek a vege
     }
 
 }

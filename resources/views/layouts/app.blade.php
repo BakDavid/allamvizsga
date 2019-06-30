@@ -131,7 +131,9 @@
             </main>
 
             <div class="container">
-                Ide jonnek a szponzorok
+                @foreach($allSponsor as $oneSponsor)
+                    <a href="{{ $oneSponsor->sponsor_url}}"><img src="storage/image/sponsors/{{$oneSponsor->sponsor_image}}" style="width: 107px; height: 107px;"></img></a>
+                @endforeach
             </div>
         </div>
     </body>

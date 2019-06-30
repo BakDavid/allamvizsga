@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Page;
+use App\Submission;
+use Carbon\Carbon;
 
-class GuestController extends Controller {
+class GuestController extends BaseController {
 
     public function news() {
 
@@ -41,5 +43,16 @@ class GuestController extends Controller {
         $pages = Page::where('pages','Archive')->first();
 
         return view('guest/archive')->with('pages',$pages);
+    }
+
+    public function advisor_check($id)
+    {
+        $submission = Submission::where('id_hash',$id)->first();
+        $submission->advisor_verified_at = Carbon::now();
+        $submission->save();
+
+        $pages = Page::where('pages','News')->first();
+
+        return view('guest/news')->with('pages',$pages);
     }
 }

@@ -13,6 +13,7 @@ use App\Cooperator;
 use App\Point;
 use App\Submission_Point;
 use App\Reviewer_Point;
+use App\Sponsor;
 use Illuminate\Support\Facades\Hash;
 
 class ReviewerController extends Controller
@@ -20,6 +21,11 @@ class ReviewerController extends Controller
 
     public function __construct() {
         $this->middleware('reviewer');
+
+        $allSponsor = Sponsor::where('deleted','0')->get();
+
+        // Sharing is caring
+        \View::share('allSponsor', $allSponsor);
     }
 
     public function review()

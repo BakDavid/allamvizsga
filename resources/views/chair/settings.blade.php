@@ -1,48 +1,53 @@
 @extends('layouts.chairapp')
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
 @section('content')
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('overview.overview') }}</div>
+                <div class="card-header">{{ __('overview.Settings') }}</div>
 
                 <div class="card-body">
-                    <div class="card-row">
-                            <a href="{{ route('overview')}}">{{ __('overview.Pages') }}</a>
-                            <p>In the Pages tab you can edit specific pages data.</p>
-                    </div>
-                    <div class="card-row">
-                            <a href="{{ route('overview')}}">{{ __('overview.Conferences') }}</a>
-                            <p>In the Conferences tab you can create, edit or delete conferences.</p>
-                    </div>
-                    <div class="card-row">
-                            <a href="{{ route('overview')}}">{{ __('overview.Submissions') }}</a>
-                            <p>In the Submissions tab you can edit or delete submissions that users have sent in.</p>
-                    </div>
-                    <div class="card-row">
-                            <a href="{{ route('overview')}}">{{ __('overview.Users') }}</a>
-                            <p>In the Conferences tab you can create, edit or delete conferences.</p>
-                    </div>
-                    <div class="card-row">
-                            <a href="{{ route('overview')}}">{{ __('overview.Documents') }}</a>
-                            <p>In the Conferences tab you can create, edit or delete conferences.</p>
-                    </div>
-                    <div class="card-row">
-                            <a href="{{ route('overview')}}">{{ __('overview.Mailing') }}</a>
-                            <p>In the Conferences tab you can create, edit or delete conferences.</p>
-                    </div>
-                    <div class="card-row">
-                            <a href="{{ route('overview')}}">{{ __('overview.Settings') }}</a>
-                            <p>In the Conferences tab you can create, edit or delete conferences.</p>
-                    </div>
 
+                    <a href="{{route('sponsorcreate')}}" class="btn btn-info">{{ __('settings.create_sponsor') }}</a>
 
+                    <div class="table-responsive table-bordered">
+                        <table id="myDataTable" class="table table-hover btn-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">{{ __('settings.sponsor_name') }}</th>
+                                    <th scope="col">{{ __('settings.sponsor_link') }}</th>
+                                    <th scope="col">{{ __('settings.sponsor_image') }}</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(count($sponsors)>0)
+                                    @foreach($sponsors as $sponsor)
+                                    <tr>
+                                        <td>{{$sponsor->sponsor_name}}</td>
+                                        <td>{{$sponsor->sponsor_url}}</td>
+                                        <td>{{$sponsor->sponsor_image}}</td>
+                                        <td><a href="{{route('sponsoredit',$sponsor->id)}}" class="btn btn-info">{{ __('settings.edit') }}</a></td>
+                                        <td><a href="{{route('sponsordelete',$sponsor->id)}}"
+                                            onclick="return confirm('{{__('settings.are_you_sure')}} {{$sponsor->sponsor_name}} ?')"
+                                             class="btn btn-danger">{{ __('settings.delete') }}</a></td>
+                                    </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js" defer></script>
+<script src="{{ asset('js/my_data_table.js') }}" defer></script>
 @endsection

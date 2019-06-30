@@ -11,5 +11,7 @@ return [
     'Mailing' => 'Mailing',
     'Settings' => 'Settings',
     'Categories' => 'Categories',
+    'Submissions_assign' => 'Submissions Assign',
+    'Export_database' => 'Export Database',
 
 ];

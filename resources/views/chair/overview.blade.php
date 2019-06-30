@@ -22,6 +22,10 @@
                             <p>In the Submissions tab you can edit or delete submissions that users have sent in.</p>
                     </div>
                     <div class="card-row">
+                            <a href="{{ route('chairsubmissionsassign')}}">{{ __('overview.Submissions_assign') }}</a>
+                            <p>In the Submissions/Assign tab you can asign all the current thesises to reviewers that you invited to the conference.</p>
+                    </div>
+                    <div class="card-row">
                             <a href="{{ route('users')}}">{{ __('overview.Users') }}</a>
                             <p>In the Users tab you can edit or delete users, also you can activate accounts.</p>
                     </div>
@@ -42,6 +46,10 @@
                     <div class="card-row">
                             <a href="{{ route('settings')}}">{{ __('overview.Settings') }}</a>
                             <p>In the Settings tab you can add sponsors to the site.</p>
+                    </div>
+                    <div class="card-row">
+                            <a href="{{ route('export_database')}}">{{ __('overview.Export_database') }}</a>
+                            <p>In the Export/Database tab you can save the current state of the database.</p>
                     </div>
                 </div>
             </div>

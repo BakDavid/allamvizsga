@@ -90,4 +90,9 @@ return [
     'create' => 'Create',
     'close' => 'Close',
     'not_reviewed' => 'Not reviewed yet!',
+    'advisor_name' => 'Advisor name: ',
+    'advisor_email' => 'Advisor email: ',
+    'advisor_verified_at' => 'Advisor verified at: ',
+    'advisor_verified_at_no' => 'Not verified',
+    'advisor_verified_at_yes' => 'Verified',
 ];

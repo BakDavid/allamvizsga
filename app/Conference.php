@@ -13,7 +13,7 @@ class Conference extends Model
         'name', 'address', 'city',
         'country', 'zipcode','comment','public','university','room',
         'application_start', 'application_deadline', 'abstract_upload_deadline',
-        'thesis_upload_deadline'
+        'thesis_upload_deadline','review_deadline','conference_day',
     ];
 
     protected $hidden = [

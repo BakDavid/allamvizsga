@@ -20,6 +20,7 @@ class CreateConferencesTable extends Migration
             $table->date('application_deadline',10);
             $table->date('abstract_upload_deadline',10);
             $table->date('thesis_upload_deadline',10);
+            $table->date('review_deadline',10);
             $table->date('conference_day',10);
             $table->string('room',50)->nullable();
             $table->string('university',50);

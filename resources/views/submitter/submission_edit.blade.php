@@ -58,6 +58,57 @@
                         </div>
                     </div>
 
+                    <div class="card-header">
+                        @if($submission->advisor_verified_at == null)
+                            <strong class="text-danger">{{ __('submission_edit.advisor_no') }}</strong>
+                        @else
+                            <strong class="text-success">{{ __('submission_edit.advisor_yes') }}</strong>
+                        @endif
+                        @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                            <p class="text-success" style="margin: 0px;float:right">{{__('submission_edit.deadline')}}{{ $conferences->thesis_upload_deadline}}</p>
+                        @else
+                            <p class="text-danger" style="margin:0px;float:right">{{__('submission_edit.deadline')}}{{ $conferences->thesis_upload_deadline}}</p>
+                        @endif
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="form-group row">
+                            <label for="advisor_name" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.advisor_name') }}</label>
+
+                            <div class="col-md-6">
+                                @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                    <input id="advisor_name" type="text" class="form-control{{ $errors->has('advisor_name') ? ' is-invalid' : '' }}" name="advisor_name" value="{{ $submission->advisor_name }}" required autofocus>
+                                @else
+                                    <input disabled id="advisor_name" type="text" class="form-control{{ $errors->has('advisor_name') ? ' is-invalid' : '' }}" name="advisor_name" value="{{ $submission->advisor_name }}" required autofocus>
+                                @endif
+
+                                @if ($errors->has('advisor_name'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('advisor_name') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="advisor_email" class="col-md-4 col-form-label text-md-right">{{ __('submission_edit.advisor_email') }}</label>
+
+                            <div class="col-md-6">
+                                @if($conferences->thesis_upload_deadline > date("Y-m-d"))
+                                    <input id="advisor_email" type="text" class="form-control{{ $errors->has('advisor_email') ? ' is-invalid' : '' }}" name="advisor_email" value="{{ $submission->advisor_email }}" required autofocus>
+                                @else
+                                    <input disabled id="advisor_email" type="text" class="form-control{{ $errors->has('advisor_email') ? ' is-invalid' : '' }}" name="advisor_email" value="{{ $submission->advisor_email }}" required autofocus>
+                                @endif
+
+                                @if ($errors->has('advisor_email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('advisor_email') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
 
                     @if(count($cooperator)>0)
                         @foreach($cooperator as $coop)
@@ -168,7 +219,7 @@
 
                                 <div class="col-md-6">
                                     @if($conferences->thesis_upload_deadline > date("Y-m-d"))
-                                        <select class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" id="department">
+                                        <select class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department[]" id="department">
                                             <option></option>
                                             @foreach($categories as $cat)
                                                 <option
@@ -179,7 +230,7 @@
                                             @endforeach
                                         </select>
                                     @else
-                                        <select disabled class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department" id="department">
+                                        <select disabled class="form-control{{ $errors->has('department') ? ' is-invalid' : '' }}" name="department[]" id="department">
                                             <option></option>
                                             @foreach($categories as $cat)
                                                 <option

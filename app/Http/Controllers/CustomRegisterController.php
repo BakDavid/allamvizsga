@@ -7,7 +7,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
-class CustomRegisterController extends Controller
+class CustomRegisterController extends BaseController
 {
 
     public function register($email_hash)
@@ -48,7 +48,5 @@ class CustomRegisterController extends Controller
         $user->save();
 
         return view('auth/login')->withErrors(array('msgp' => 'The account with the following email: ' . $user->email . ' have been set up successfully and activated! Log in to use your account.'));
-
-
     }
 }

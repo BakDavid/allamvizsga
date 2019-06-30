@@ -90,4 +90,9 @@ return [
     'create' => 'Létrehozás',
     'close' => 'Bezárás',
     'not_reviewed' => 'Még nincs bírálva',
+    'advisor_name' => 'Felügyelő neve: ',
+    'advisor_email' => 'Felügyelő emailje: ',
+    'advisor_verified_at' => 'Felügyelő ellenőrizve: ',
+    'advisor_verified_at_no' => 'Nincs ellenőrizve',
+    'advisor_verified_at_yes' => 'Ellenőrizve',
 ];

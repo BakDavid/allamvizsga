@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth_app')
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 

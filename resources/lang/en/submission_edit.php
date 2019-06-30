@@ -45,4 +45,9 @@ return [
     'no_file' => 'No file uploaded yet!',
     'cancel' => 'Cancel',
     'update' => 'Update',
+    'advisor' => 'Advisor',
+    'advisor_no' => 'Advisor not verified',
+    'advisor_yes' => 'Advisor verified',
+    'advisor_name' => 'Advisor(s) name',
+    'advisor_email' => 'Advisor email',
 ];

@@ -27,7 +27,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'department' => $faker->company,
         'telephone' => '0789769469',
         'user_type' => 'submitter',
-        'birth_date' => $faker->date,
+        'birth_date' => null,
+        //'birth_date' => $faker->date,
         //'gender' => 'male',
         'remember_token' => str_random(10),
     ];

@@ -12,10 +12,12 @@ use App\Conference;
 use App\Submission_Cooperator;
 use App\Submission_Conference;
 use App\User_Submission;
+use App\Sponsor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Storage;
 use Carbon\Carbon;
+use Mail;
 
 class SubmitterController extends GuestController {
 
@@ -26,6 +28,11 @@ class SubmitterController extends GuestController {
      */
     public function __construct() {
         $this->middleware(['auth', 'verified', 'submitter']);
+
+        $allSponsor = Sponsor::where('deleted','0')->get();
+
+        // Sharing is caring
+        \View::share('allSponsor', $allSponsor);
     }
 
     /**
@@ -238,12 +245,8 @@ class SubmitterController extends GuestController {
             'first_name.*' => 'required|max:50|string',
             'last_name' => 'required|array|min:1',
             'last_name.*' => 'required|max:50|string',
-            //'student' => 'required|array|min:1',
-            //'student.*' => 'nullable',
             'birth_date' => 'required|array|min:1',
             'birth_date.*' => 'nullable|max:255|date',
-            //'gender' => 'required|array|min:1',
-            //'gender.*' => 'nullable|max:6',
             'address' => 'required|array|min:1',
             'address.*' => 'nullable|max:100',
             'city' => 'required|array|min:1',
@@ -260,20 +263,13 @@ class SubmitterController extends GuestController {
             'university.*' => 'required|max:100',
             'department' => 'required|array|min:1',
             'department.*' => 'required|max:100',
-            //'facebook' => 'required|array|min:1',
-            //'facebook.*' => 'nullable|max:100|url',
-            //'google' => 'required|array|min:1',
-            //'google.*' => 'nullable|max:100|url',
-            //'twitter' => 'required|array|min:1',
-            //'twitter.*' => 'nullable|max:100|url',
-            //'linkedin' => 'required|array|min:1',
-            //'linkedin.*' => 'nullable|max:100|url',
             'title' => 'required|max:50',
-            //'category' => 'required',
             'key_words' => 'max:100',
             'abstract' => 'max:255',
             'thesis_name_upload' => 'nullable',
             'comment' => 'max:255',
+            'advisor_name' => 'max:255',
+            'advisor_email' => 'email',
         ]);
 
         //Test deadline to catch those ones who try to update later the submission
@@ -293,6 +289,9 @@ class SubmitterController extends GuestController {
         }
 
         $submission->title = $request->input('title');
+        $submission->advisor_name = $request->input('advisor_name');
+        $submission->advisor_email = $request->input('advisor_email');
+        $submission->id_hash = str_replace('/','',Hash::make($submission->id));
         $submission->key_words = $request->input('key_words');
         $submission->abstract = $request->input('abstract');
         $submission->title = $request->input('title');
@@ -307,6 +306,18 @@ class SubmitterController extends GuestController {
             Storage::put($destinationPath,file_get_contents($file));
 
             $submission->thesis_name_upload = $name;
+        }
+
+        //Advisor check handle
+        if($request->input('advisor_email') != null && $submission->advisor_verified_at == null)
+        {
+            set_time_limit(0);
+
+            //email kuldes resz
+            Mail::send('emails/advisor_check_mail',['submission'=>$submission],function($message) use ($submission){
+                $message->from(Auth::user()->email);
+                $message->to($submission->advisor_email)->subject('Thesis advisor check');
+            });
         }
 
         $submission->save();

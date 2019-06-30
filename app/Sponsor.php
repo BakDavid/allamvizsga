@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class Submission extends Model
+class Sponsor extends Model
 {
     use Notifiable;
 
@@ -15,9 +15,7 @@ class Submission extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'key_words', 'abstract',
-        'thesis_name_upload','comment',
-        'advisor_name','advisor_email',
+        'sponsor_name','sponsor_url','sponsor_image'
     ];
 
     /**
@@ -26,6 +24,6 @@ class Submission extends Model
      * @var array
      */
     protected $hidden = [
-        //'remember_token', 'category_id', 'deleted',
+        //'password', 'remember_token',
     ];
 }
